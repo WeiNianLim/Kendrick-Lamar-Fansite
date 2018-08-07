@@ -1,0 +1,290 @@
+html {
+    font-size: 14px;
+}
+
+header {
+    background-image: url(img/kl3.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: none;
+    font-family: monospace;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+header>.container {
+    max-width: 100vw;
+    margin: 0;
+}
+
+header>nav>#artistName {
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    color: white;
+    padding-top: 1.2rem;
+    font-size: 3rem;
+}
+
+header>nav>.col-lg-1.col-md-1.col-sm-4.col-12 {
+    padding-top: 2.5rem;
+}
+
+header>nav>div>a {
+    color: white;
+}
+
+header>nav>div>a:hover {
+    color: gold;
+    text-decoration: none;
+}
+
+.aboutSection {
+    background-image: url(img/klmusic.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: none;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.jumbotron {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: scroll;
+    background-color: rgb(44, 43, 43, 0.8);
+}
+
+.jumbotron>h1 {
+    color: gold;
+}
+
+.jumbotron>p {
+    color: white;
+}
+
+#artistNameAboutSection {
+    font-weight: bolder;
+    color: black;
+}
+
+.aboutSection>.col-lg-6.col-md-6.col-sm-12.col-12 {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.musicSection {
+    background-image: url(img/kl5.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: none;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.layer {
+    position: absolute;
+    background-color: rgb(255, 255, 255, 0.8);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+.card {
+    color: white;
+}
+
+.card-body {
+    background-color: rgb(44, 43, 43);
+}
+
+.btn-primary {
+    color: gold;
+    background-color: rgb(44, 43, 43);
+    border-color: gold;
+}
+
+.musicSection>.layer>.container>.row>.col-lg-3.col-md-4.col-sm-6.col-12 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.musicChannelSection {
+    background-image: url(img/kl2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: none;
+    padding: 2%;
+}
+
+#musicAlbum {
+    color: white;
+    font-weight: bold;
+    margin-top: 0;
+    padding: 1rem;
+}
+
+#youtubeStream {
+    padding: 0.5em;
+    border: 0.2rem solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bolder;
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    padding-left: 19.5%;
+    padding-right: 19.5%;
+}
+
+#applemusicStream {
+    padding: 0.5rem;
+    border: 0.2rem solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bolder;
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+#spotifyStream {
+    padding: 0.5rem;
+    border: 0.2rem solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bolder;
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#youtubeStream:hover {
+    background-color: rgb(247, 80, 80);
+    border: 0.25rem solid gold;
+    color: gold;
+}
+
+#applemusicStream:hover {
+    background-color: black;
+    border: 0.25rem solid gold;
+    color: gold;
+}
+
+#spotifyStream:hover {
+    background-color: black;
+    border: 0.25rem solid gold;
+    color: gold;
+}
+
+.tourSection {
+    background-image: url(img/klconcert3.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: none;
+    padding: 5%;
+    overflow-y: scroll;
+}
+
+.tourSection>h1 {
+    color: gold;
+}
+
+.tourSection>div>div>span {
+    color: white;
+}
+
+.tourSection>div>div>.col-lg-2.col-md-2.col-sm-2.col-lg-1.col-md-1.col-sm-1.col-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tourSection>div>div>a {
+    color: white;
+}
+
+.tourSection>div>div>a:hover {
+    text-decoration: none;
+    color: gold;
+}
+
+#northAmericaAnchor {
+    color: gold;
+    text-decoration: underline;
+}
+
+#ticketsContainer {
+    margin-top: 5%;
+}
+
+#southAmericaAnchor {
+    color: white;
+}
+
+#europeAnchor {
+    color: white;
+}
+
+#internationalAnchor {
+    color: white;
+}
+
+#date {
+    color: white;
+}
+
+#venue {
+    color: white;
+}
+
+#tickets {
+    border: solid 0.1rem white;
+    color: white;
+    padding: 0.5rem;
+}
+
+.formSection {
+    background-image: url(img/kl4.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: none;
+    padding: 5%;
+    overflow-y: scroll;
+}
+
+form {
+    margin-top: 15%;
+    background-color: rgb(29, 28, 28, 0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+#emailLabel {
+    color: gold;
+}
+
+#passwordLabel {
+    color: gold;
+}
+
+#checkLabel {
+    color: gold;
+}
+
+#formh1 {
+    font-weight: bolder;
+    color: white;
+    text-emphasis-color: gold;
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var youtube = '<iframe width="560" height="315" src="https://www.youtube.com/embed/NLZRYQMLDW4"' +
+                'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            var apple =
+                '<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" sandbox="allow-forms ' +
+                'allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" ' +
+                'src="https://embed.music.apple.com/us/album/damn/1223592280?app=music" width="660"></iframe>'
+            var spotify =
+                '<iframe src="https://open.spotify.com/embed?uri=spotify:album:4eLPsYPBmXABThSJ821sqY"' +
+                'width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+
+            $('#tourEvents').load('http://127.0.0.1:8080/html/northAmerica.html #northAmericaTickets');
+            $('#youtubeStream').css('color', 'gold');
+            $('#youtubeStream').css('border', '0.25rem solid gold');
+            $('#youtubeStream').css('background-color', 'black');
+            $('#applemusicStream').css('color', 'white');
+            $('#applemusicStream').css('border', '0.2rem solid white');
+            $('#applemusicStream').css('background-color', 'transparent');
+            $('#spotifyStream').css('color', 'white');
+            $('#spotifyStream').css('border', '0.2rem solid white');
+            $('#spotifyStream').css('background-color', 'transparent');
+            $(window).on('resize', function () {
+                var window = $(this);
+                if (window.width() <= 991.98) {
+                    $("#artistName").removeClass("text-left").addClass("text-center");
+                } else if (window.width() >= 992) {
+                    $("#artistName").removeClass("text-center").addClass("text-left");
+                }
+                if (window.width() <= 575.99) {
+                    $("#europeId").removeClass("text-center").addClass("text-left");
+                } else if (window.width() >= 576) {
+                    $("#europeId").removeClass("text-left").addClass("text-center");
+                }
+            });
+            $('#northAmericaAnchor').click(function () {
+                $('#northAmericaAnchor').css('color', 'gold');
+                $('#southAmericaAnchor').css('color', 'white');
+                $('#europeAnchor').css('color', 'white');
+                $('#internationalAnchor').css('color', 'white');
+                $('#northAmericaAnchor').css('text-decoration', 'underline');
+                $('#southAmericaAnchor').css('text-decoration', 'none');
+                $('#europeAnchor').css('text-decoration', 'none');
+                $('#internationalAnchor').css('text-decoration', 'none');
+                $('#tourEvents').html('');
+                $('#tourEvents').load(
+                    'http://127.0.0.1:8080/html/northAmerica.html #northAmericaTickets');
+            });
+            $('#southAmericaAnchor').click(function () {
+                $('#northAmericaAnchor').css('color', 'white');
+                $('#southAmericaAnchor').css('color', 'gold');
+                $('#europeAnchor').css('color', 'white');
+                $('#internationalAnchor').css('color', 'white');
+                $('#northAmericaAnchor').css('text-decoration', 'none');
+                $('#southAmericaAnchor').css('text-decoration', 'underline');
+                $('#europeAnchor').css('text-decoration', 'none');
+                $('#internationalAnchor').css('text-decoration', 'none');
+                $('#tourEvents').html('');
+                $('#tourEvents').load(
+                    'http://127.0.0.1:8080/html/southAmerica.html #southAmericaTickets');
+            });
+            $('#europeAnchor').click(function () {
+                $('#northAmericaAnchor').css('color', 'white');
+                $('#southAmericaAnchor').css('color', 'white');
+                $('#europeAnchor').css('color', 'gold');
+                $('#internationalAnchor').css('color', 'white');
+                $('#northAmericaAnchor').css('text-decoration', 'none');
+                $('#southAmericaAnchor').css('text-decoration', 'none');
+                $('#europeAnchor').css('text-decoration', 'underline');
+                $('#internationalAnchor').css('text-decoration', 'none');
+                $('#tourEvents').html('');
+                $('#tourEvents').load('http://127.0.0.1:8080/html/europe.html #europeTickets');
+            });
+            $('#internationalAnchor').click(function () {
+                $('#northAmericaAnchor').css('color', 'white');
+                $('#southAmericaAnchor').css('color', 'white');
+                $('#europeAnchor').css('color', 'white');
+                $('#internationalAnchor').css('color', 'gold');
+                $('#northAmericaAnchor').css('text-decoration', 'none');
+                $('#southAmericaAnchor').css('text-decoration', 'none');
+                $('#europeAnchor').css('text-decoration', 'none');
+                $('#internationalAnchor').css('text-decoration', 'underline');
+                $('#tourEvents').html('');
+                $('#tourEvents').load(
+                    'http://127.0.0.1:8080/html/international.html #internationalTickets');
+            });
+
+            $('#youtubeStream').on('click', function (e) {
+                $('#musicChannel').html(youtube);
+                $('#youtubeStream').css('color', 'gold');
+                $('#youtubeStream').css('border', '0.25rem solid gold');
+                $('#youtubeStream').css('background-color', 'black');
+                $('#applemusicStream').css('color', 'white');
+                $('#applemusicStream').css('border', '0.2rem solid white');
+                $('#applemusicStream').css('background-color', 'transparent');
+                $('#spotifyStream').css('color', 'white');
+                $('#spotifyStream').css('border', '0.2rem solid white');
+                $('#spotifyStream').css('background-color', 'transparent');
+            })
+            $('#applemusicStream').on('click', function (e) {
+                $('#musicChannel').html(apple);
+                $('#youtubeStream').css('color', 'white');
+                $('#youtubeStream').css('border', '0.2rem solid white');
+                $('#youtubeStream').css('background-color', 'transparent');
+                $('#applemusicStream').css('color', 'gold');
+                $('#applemusicStream').css('border', '0.25rem solid gold');
+                $('#applemusicStream').css('background-color', 'black');
+                $('#spotifyStream').css('color', 'white');
+                $('#spotifyStream').css('border', '0.2rem solid white');
+                $('#spotifyStream').css('background-color', 'transparent');
+            })
+            $('#spotifyStream').on('click', function (e) {
+                $('#musicChannel').html(spotify);
+                $('#youtubeStream').css('color', 'white');
+                $('#youtubeStream').css('border', '0.2rem solid white');
+                $('#youtubeStream').css('background-color', 'transparent');
+                $('#applemusicStream').css('color', 'white');
+                $('#applemusicStream').css('border', '0.2rem solid white');
+                $('#applemusicStream').css('background-color', 'transparent');
+                $('#spotifyStream').css('color', 'gold');
+                $('#spotifyStream').css('border', '0.25rem solid gold');
+                $('#spotifyStream').css('background-color', 'black');
+            })
+
+
+            $('#damn').click(function () {
+                $('#musicAlbum').html('');
+                $('#musicAlbum').html('<h1>Album : DAMN.</h1>');
+                $('#musicChannel').html(
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/NLZRYQMLDW4"' +
+                    'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                youtube =
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/NLZRYQMLDW4"' +
+                    'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+                apple =
+                    '<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="400" sandbox="allow-forms ' +
+                    'allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" ' +
+                    'src="https://embed.music.apple.com/us/album/damn/1223592280?app=music" width="500"></iframe>'
+                spotify =
+                    '<iframe src="https://open.spotify.com/embed?uri=spotify:album:4eLPsYPBmXABThSJ821sqY"' +
+                    'width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+
+            })
+            $('#untitle').click(function () {
+                $('#musicAlbum').html('');
+                $('#musicAlbum').html('<h1>Listen to Album Untitled</h1>');
+                $('#musicChannel').html(
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/sfQDbfJS3xI"' +
+                    'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                youtube =
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/sfQDbfJS3xI"' +
+                    'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+                apple =
+                    '<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="400" sandbox="allow-forms ' +
+                    'allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" ' +
+                    'src="https://embed.music.apple.com/us/album/untitled-unmastered/1089846273?app=music" width="500"></iframe>'
+                spotify =
+                    '<iframe src="https://open.spotify.com/embed?uri=spotify:album:0kL3TYRsSXnu0iJvFO3rud"' +
+                    'width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+            })
+            $('#butterfly').click(function () {
+                $('#musicAlbum').html('');
+                $('#musicAlbum').html('<h1>Listen to Album Untitled</h1>');
+                $('#musicChannel').html(
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/TX0CLLiVAnw"' +
+                    'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                youtube =
+                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/TX0CLLiVAnw"' +
+                    'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+                apple =
+                    '<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="400" sandbox="allow-forms ' +
+                    'allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" ' +
+                    'src="https://embed.music.apple.com/us/album/to-pimp-a-butterfly/974187289?app=music" width="500"></iframe>'
+                spotify =
+                    '<iframe src="https://open.spotify.com/embed?uri=spotify:album:7ycBtnsMtyVbbwTfJwRjSP"' +
+                    'width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+            })
+        });
+    </script>
+    <title>Kendrick Lamar Fansite</title>
+</head>
+
+<body>
+    <header>
+        <nav class="row container">
+            <div id="artistName" class="col-lg-9 col-md-9 col-sm-12 col-12 text-left">KENDRICK LAMAR</div>
+            <div id="navItem" class="col-lg-1 col-md-1 col-sm-4 col-12 text-center">
+                <a href="#aboutAnchor">ABOUT</a>
+            </div>
+            <div id="navItem" class="col-lg-1 col-md-1 col-sm-4 col-12 text-center">
+                <a href="#musicAnchor">MUSIC</a>
+            </div>
+            <div id="navItem" class="col-lg-1 col-md-1 col-sm-4 col-12 text-center">
+                <a href="#tourAnchor">TOUR</a>
+            </div>
+        </nav>
+    </header>
+    <section id="aboutAnchor" class="aboutSection">
+        <div class="jumbotron">
+            <h1 class="display-4">“I don’t do black music, I don’t do white music. I do everyday life music.”</h1>
+            <p id="artistNameAboutSection" class="h1">- KENDRICK LAMAR</p>
+            <hr class="my-3">
+            <p>
+                Kendrick Lamar Duckworth (born June 17, 1987) is an American rapper, songwriter, and record producer. 
+                Raised in Compton, California, Lamar embarked on his musical career as a teenager under the stage name 
+                K-Dot, releasing a mixtape that garnered local attention and led to his signing with indie record label 
+                Top Dawg Entertainment (TDE). He began to gain recognition in 2010, after his first retail release, 
+                Overly Dedicated. The following year, he independently released his first studio album, Section.80, 
+                which included his debut single, "HiiiPoWeR". By that time, he had amassed a large online following and 
+                collaborated with several prominent hip hop artists, including The Game, Busta Rhymes, and Snoop Dogg.
+                
+                Lamar's major label debut album, good kid, m.A.A.d city, was released in 2012 by TDE, Aftermath, and 
+                Interscope Records to critical success. It debuted at number two on the US Billboard 200 chart and was 
+                later certified platinum by the RIAA. The record contained the top 40 singles "Swimming Pools (Drank)", 
+                "Bitch, Don't Kill My Vibe", and "Poetic Justice". It was nominated for Album of the Year and Best Rap 
+                Album at the 56th Grammy Awards. His critically acclaimed third album To Pimp a Butterfly (2015) comprised 
+                funk, soul, and spoken word, debuted atop the charts in the US and the UK, and won the Grammy Award for 
+                Best Rap Album at the 58th ceremony, where it was nominated for Album of the Year. In 2016, Lamar released 
+                Untitled Unmastered, a collection of unreleased demos that originated during the recording sessions for 
+                Butterfly. He released his fourth album Damn. in 2017 to further acclaim; its lead single "Humble" topped 
+                the US Billboard Hot 100 chart.
+                
+                Lamar has received a number of accolades over the course of his career, including twelve Grammy Awards. 
+                In early 2013, MTV named him the number one "Hottest MC in the Game", on their annual list.[1] Time named 
+                him one of the 100 most influential people in the world in 2016.[2] Aside from his solo career, Lamar is also
+                known as a member of the West Coast hip hop supergroup Black Hippy, alongside his TDE label-mates and fellow 
+                South Los Angeles–based rappers Ab-Soul, Jay Rock, and Schoolboy Q. In 2018, Damn. became the first 
+                non-classical and non-jazz album to be awarded the Pulitzer Prize for Music.
+            </p>
+        </div>
+
+    </section>
+    <section id="musicAnchor" class="musicSection">
+        <div class="layer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/kldamn.jpeg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">DAMN.</h5>
+                                <p class="card-text">April 14, 2017
+                                    <br> </p>
+                                <a id="damn" href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/klUntitled.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Untitled Unmastered</h5>
+                                <p class="card-text">March 4, 2016
+                                    <br> </p>
+                                <a id="untitle" href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/klToPimpAButterfy.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">To Pimp A Butterfly</h5>
+                                <p class="card-text">March 15, 2015
+                                    <br> </p>
+                                <a id="butterfly" href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/klGoodKidMaadCity.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Good Kid, M.A.A.D City</h5>
+                                <p class="card-text">October 22, 2012</p>
+                                <a id="goodkid" href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/klSection80.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Section.80</h5>
+                                <p class="card-text">July 2, 2011</p>
+                                <a href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/klOverlyDedicated.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Overly Dedicated</h5>
+                                <p class="card-text">September 14, 2010</p>
+                                <a href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/kllast.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">The Kendrick Lamar EP</h5>
+                                <p class="card-text">December 31, 2009</p>
+                                <a href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/klC4.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">C4</h5>
+                                <p class="card-text"> January 30, 2009</p>
+                                <a href="#musicChannelAnchor" class="btn btn-primary">Listen</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="musicChannelAnchor" class="musicChannelSection">
+        <div class="row">
+            <div class="col-12 text-center">
+
+                <div id="musicAlbum">
+                    <h1>Album : DAMN.</h1>
+                </div>
+
+                <div id="musicChannel">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NLZRYQMLDW4" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
+
+                <button id="youtubeStream" type="button" class="btn btn-primary btn-lg">
+                    YOUTUBE
+                </button>
+
+                <button id="applemusicStream" type="button" class="btn btn-primary btn-lg">
+                    APPLE MUSIC
+                </button>
+
+                <button id="spotifyStream" type="button" class="btn btn-primary btn-lg">
+                    SPOTIFY
+                </button>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="tourAnchor" class="tourSection">
+        <h1>THE KENDRICK LAMAR CONCERT</h1>
+        <div class="container row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                <a id="northAmericaAnchor" href="#tourAnchor">NORTH AMERICA</a>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                <a id="southAmericaAnchor" href="#tourAnchor">SOUTH AMERICA</a>
+            </div>
+            <div id="europeId" class="col-lg-2 col-md-2 col-sm-2 col-12 text-center">
+                <a id="europeAnchor" href="#tourAnchor">EUROPE</a>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                <a id="internationalAnchor" href="#tourAnchor">INTERNATIONAL</a>
+            </div>
+        </div>
+        <div id="tourEvents"></div>
+
+    </section>
+
+    <section class="formSection">
+        <h1 id="formh1" class="text-center display-2">Subsribe If You Love Him</h1>
+        <form>
+            <div class="form-group">
+                <label id="emailLabel" for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label id="passwordLabel" for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label id="checkLabel" class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+</body>
+
+</html>
